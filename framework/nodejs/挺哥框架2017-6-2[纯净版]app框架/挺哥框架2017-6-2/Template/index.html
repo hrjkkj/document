@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父亲节投票</title>
+    <style id="CSS" type="text/css"></style>
+</head>
+<body>
+<!--顶部-->
+<!--<div rude="header">-->
+    <!--顶部内容-->
+<!--</div>-->
+<!--/顶部-->
+<!--主体-->
+<div rude="page" id="iscroll_index" ><!--iscroll_+该页面的名称-->
+    <div>
+        something in the world..
+    </div>
+</div>
+<!--/主体-->
+<!--底部-->
+<!--<div  rude="footer">-->
+    <!--底部内容-->
+<!--</div>-->
+</body>
+<script>
+    var index = {
+        H:0,//滚动高度
+        P:'',//该参数为该页面返回上一个页面的名称 如：P：'index'; 进入brand返回上一层为index
+        U:"",
+        Init:function()
+        {
+            //第一次加载触发
+            alert()
+        },
+        _Init:function()
+        {
+            //第二加载触发
+        },
+        Logout:function()//退出时进行操作
+        {
+            //alert('退出');
+        },
+        // 每次进行一次点击事件，在结束后需要加上obj.RunEnd();
+        return:function(obj)//点击返回上一页面
+        {
+            togoback(obj);
+            obj.RunEnd();
+        }
+    }
+</script>
+</html>
