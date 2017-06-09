@@ -5,6 +5,9 @@ function pgvGetCookieByName(e) {
 function pgvRealSetCookie(e) {
 	Tcss.d.cookie = e + ";path=/;domain=" + Tcss.domainToSet + ";expires=Sun, 18 Jan 2038 00:00:00 GMT;"
 }
+/*
+ * 
+**/
 function pgvGetDomainInfo() {
 	typeof pvCurDomain != "undefined" && pvCurDomain != "" && (Tcss.dm = pvCurDomain),
 	typeof pvCurUrl != "undefined" && pvCurUrl != "" && (Tcss.url = escape(pvCurUrl)),
