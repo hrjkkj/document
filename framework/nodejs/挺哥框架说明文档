@@ -1,0 +1,63 @@
+挺哥框架说明文档
+
+
+#### 前端
+```
+<button id="ajaxbtn"></button>
+<script>
+	var $ajaxbtn = document.getElementById("ajaxbtn");
+	$ajaxbtn.onclick = function() {
+		Tajax.send("post", data, function(obj) {
+			alert(obj.Text);
+			// 其他的业务逻辑
+		}, 10000)
+	}
+</script>
+```
+==== 流程 ====
+当我点击了button，那么通过Tajax发出一个请求通过`回调函数`来获得返回的东西
+
+
+#### 后台
+
+==== 请求说明 ====
+Tajax：
+	功能：发送请求到后台
+params : 
+	method(方法), 
+	data(传递到后台的参数), 
+	callback(回调函数，请求数据成功的回调), 
+	timeout(超时时间)
+
+后台接收并返回：
+```
+	// get请求来获取页面
+	app.get("index.html", {}, {}, function*(arg) {
+		var db = arg.client.collection("db");
+		var all = yield db.find({}).toArray();
+		var ret = arg.ejs.render(arg.ret,all);
+    	arg.retHTML(ret);
+	})
+	// post请求来接收参数，并且返回string类型的json格式的数据
+	app.post("method", {}, {}, function*(arg) {
+		// 接收前台发送的数据
+		var params = arg.fields;
+		// 连接某个数据库表
+		var db = arg.client.collection(db);
+		// 返回前台字符串格式
+		arg.retJSON("1");
+		arg.retJSON(JSON.stringify({"name": "sdsadf"}))
+	})
+```
+==== 响应说明 ====
+app.post，app.get
+	说明：后台路由
+	不同：[主要区别是返回的类型不一样。]
+		app.get用于处理html这些静态页面。但是 app.post用来处理用户发出请求之后返回json数据
+
+
+
+
+	
+
+
