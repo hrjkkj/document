@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建活动</title>
+    <link rel="stylesheet" href="../../web/lib/bootstrap/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../web/lib/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../web/css/base.css">
+</head>
+<body>
+    <!--导航-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="../../web/images/logo.png" style="margin-right:10px;float: left;margin-top:-10px;width: 40px;height: 40px;" alt="">
+                    <span>华嵘健康科技</span>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
+                    <!--<li><a href="#">Link</a></li>-->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">菜单 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./activity.html">创建活动</a></li>
+                            <li><a href="./setting.html">活动设置</a></li>
+                            <li><a href="./voting.html">投票人员统计</a></li>
+                            <li><a href="./participator.html">参赛者审核</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#"></a></li>
+                            <!--<li role="separator" class="divider"></li>-->
+                            <!--<li><a href="#">One more separated link</a></li>-->
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!--导航 end-->
+
+    <!--alert-->
+    <div class="alert alert-danger">
+        现在的系统暂时只能创建一个活动
+    </div>
+    <!--alert end-->
+
+    <!-- 活动检测器、 -->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            活动监测器
+        </div>
+        <div class="panel-body">
+            <div id="hdjcq">
+                <div>
+                    <img src="../../web/images/icons/load1.gif" style="width:24px;height: 24px;" alt="">
+                    <span>加载中...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 活动检测器 end -->
+
+    <!-- 创建活动 -->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            创建活动
+        </div>
+        <div class="panel-body">
+            <form>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">活动名称</span>
+                  <input type="text" name="activity_name" class="form-control" placeholder="活动名称" value="父亲节活动" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">活动状态</span>
+                  <!-- <input type="text" class="form-control" placeholder="活动状态" value="开启" aria-describedby="basic-addon1"> -->
+                  <select  name="activity_status">
+                      <option value="1">开启</option>
+                      <option value="0">关闭</option>
+                  </select>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">活动主题</span>
+                    <textarea  name="activity_theme" name="" class="form-control" id="" cols="30" rows="10">这是有关父亲节的活动的一个投票活动，为了回馈广大顾客的厚爱，我司特地在父亲节这个特殊的节日举办了上传与父亲的合照获得大奖的活动</textarea>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">活动时间</span>
+                    <div class="form-control">
+                        <input type="text" name="activity_start_time" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"  name="activity_start_time"  placeholder="开始时间" aria-describedby="basic-addon1">
+                        <span class=""><i class="fa fa-home"></i></span>
+                        <input type="text" name="activity_finish_time" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"  name="activity_finish_time"  placeholder="结束时间" aria-describedby="basic-addon1">
+                    </div>
+                    <!-- <span class="input-group-addon btn btn-success"  id="basic-addon1">发布</span> -->
+                </div>
+                <div>
+                    <label for="">
+                        <input type="checkbox">
+                        <a href="./termsofservice.html">同意服务协议</a>
+                    </label>
+                </div>
+                <div class="btn btn-success" onclick="createActivity(this);"  params='{"url": "./person.html"}'>
+                    <i class="fa fa-plus"></i>
+                    <span>创建活动</span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 创建活动 end -->
+</body>
+<div id="template" style="display: none;">
+    <table class="table table-bordered" style="text-align:center;">
+        <thead>
+        <tr><td>#TITLE#</td></tr>
+        </thead>
+        <tbody>
+        <tr><td>#CONTENT#</td></tr>
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript" src="../../web/lib/laydate/laydate.js"></script>
+<script type="text/javascript" src="../../web/js/Tajax.js"></script>
+<script type="text/javascript" src="../../web/lib/jquery.min.js"></script>
+<script type="text/javascript" src="../../web/lib/bootstrap/js/bootstrap.min.js"> </script>
+<script type="text/javascript" src="../../web/js/common.js"></script>
+<script type="text/javascript">
+    hdjcq();
+    function hdjcq() {
+        var datas = {};
+        datas.titledata = [
+            "活动ID",
+            "活动名称",
+            "活动介绍",
+            "活动状态",
+            "开始时间",
+            "结束时间",
+            "操作"
+        ]
+        datas.contentdata = [
+            {
+                _id: "gzs2323erb45cafg	",
+                "activity_name": "父亲节活动",
+                "activity_status": "1"
+            },
+            {
+                _id: "gzs2323erb45cafg	",
+                "activity_name": "父亲节活动",
+                "activity_status": "1"
+            }
+        ]
+        Tajax.send("post","getActivityMethod", "", function (obj) {
+            try {
+                var data = JSON.parse(obj.Text)
+            } catch (e) {
+                console.log(e);
+            }
+            if(data) {
+                datas.contentdata = data;
+                append(datas, "hdjcq");
+            } else {
+                // 空处理
+                var empty = '<div> \
+                                <i class="fa fa-window-close"></i>\
+                                <span>还未创建活动</span>\
+                            </div>';
+                document.getElementById("hdjcq").innerHTML = empty;
+            }
+        }, 10000);
+    }
+    // 停止活动的按钮
+    function stopActivity(obj) {
+        var isban = confirm("您确定中止活动吗？");
+        if(isban) {
+            var activity_id = obj.children[2].value;
+                var data = "activity_id=" + activity_id;
+                Tajax.send("post", "adminStopActivityMethod", data, function (obj1) {
+                    try {
+                        var data = parseInt(obj1.Text);
+                    } catch(e) {
+                        console.log(e)
+                    }
+                    if(data) {
+                        alert();
+                        obj.children[1].innerHTML = "活动已中止";
+                        window.location.reload();
+//                        obj.setAttribute("class", "btn btn-default");
+//                        obj.setAttribute("disabled","true");
+                    }
+                }, 10000);
+
+        }
+    }
+
+    function createActivity() {
+        // 判断是否有活动，活动是否在进行，如果已经中止，可以创建新的活动
+        var ajaxhasActivity = false;
+        if(!ajaxhasActivity) {
+            var form = document.forms[0];
+            var activity_name = form.activity_name.value;
+            var activity_status = form.activity_status.value;
+            var activity_theme = form.activity_theme.value;
+            var activity_start_time = form.activity_start_time.value;
+            var activity_finish_time = form.activity_finish_time.value;
+            var isoutdate = new Date(activity_start_time).getTime() > new Date(activity_finish_time).getTime();
+            if(activity_name == "") {
+                alert("活动名称不为空");
+            } else if(activity_status == "") {
+                alert("请选择活动状态")
+            } else if(activity_theme == "") {
+                alert("活动主题不为空");
+            } else if(activity_start_time == "") {
+                alert("活动时间不为空");
+            } else if(isoutdate) {
+                alert("活动结束时间必须大于开始时间");
+            } else {
+                var senddata = "activity_name=" + encodeURIComponent(activity_name)
+                        + "&activity_status=" + encodeURIComponent(activity_status)
+                        + "&activity_theme=" + encodeURIComponent(activity_theme)
+                        + "&activity_start_time=" + new Date(activity_start_time).getTime()
+                        + "&activity_finish_time=" + new Date(activity_finish_time).getTime();
+                console.log(senddata);
+                Tajax.send("post", "adminCreateActivityMethod", senddata, function(obj) {
+                    try {
+                        var data = JSON.parse(obj.Text);
+                    } catch (e) {
+                        console.log(e);
+                    }
+
+                    if(data == 0) {
+
+                    } else if(data == 2) {
+                        alert("活动已经创建过，请修改名称再创建");
+                    } else  {
+                        alert("活动创建成功");
+                        Tools.Open("setting.html");
+                    }
+                }, 1000)
+            }
+        }
+    }
+</script>
+</html>
