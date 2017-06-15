@@ -1,0 +1,6 @@
+1.nModified:0, 为什么会输出0（已经获取到_id,title,name,text）(请看3.)
+2.length 无法读取空的 属性“length” 为什么？ 已解决：用if(result)代替if(result.length>0);
+3.前端(chrome)后台(xshell)都没有报错，nModified:0nMatch:0 , 数据库数据修改成功了。为什么？
+已解决:返回前台的参数arg.retJSON自己定义返回0在前台。当有数据被修改的时候，后台(xshell)的nModified:1
+当没有数据被修改（也就是空修改）的时候，nModified:0. 最后使用if(result.result.ok){arg.retJSON:"1"}
+4.
