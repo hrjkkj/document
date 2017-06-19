@@ -1,0 +1,8 @@
+- getElmentById 获取带有指定 id 的节点 例如:<p id="id">hi</p>
+- innerHtml 节点的文本值  innerHTML="可以修改内容";
+- .value 值
+- parentNode 节点的父节点
+- children 节点的子节点
+- onclick 点击事件
+- getElementsByTagName 获取标签的所有元素的节点列表（集合/节点数组）。例如 <p>hello</p>
+- getElementsByClassName()	返回包含带有指定类名的所有元素的节点列表。

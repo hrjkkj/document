@@ -1,4 +1,4 @@
- //µã»÷²é¿´
+ //ç‚¹å‡»æŸ¥çœ‹
     function hello1(obj){
         var $div = obj.parentNode;
         var _id = $div.children[0].value;
@@ -26,7 +26,7 @@
         }, 10000);
     }
 
-    //²éÑ¯
+    //æŸ¥è¯¢
     data();
     function data() {
         var data = document.getElementById("data");
@@ -49,10 +49,10 @@
             }
         }, 10000);
     };
-   //ĞŞ¸Ä
+   //ä¿®æ”¹
         var updateArticle = document.getElementById("updateArticle");
         updateArticle.onclick= function(){
-        var isupdate = confirm("È·¶¨ĞŞ¸ÄÎÄÕÂÂğ£¿");
+        var isupdate = confirm("ç¡®å®šä¿®æ”¹æ–‡ç« å—ï¼Ÿ");
         if(isupdate) {
             var form = document.forms[0];
             var title = form.title.value;
@@ -60,13 +60,13 @@
             var text = form.text.value;
             var _id = form._id.value;
 
-            //ÅĞ¶Ï¿Õ
+            //åˆ¤æ–­ç©º
             if(title == "") {
-                alert("±êÌâ²»ÄÜÎª¿Õ");
+                alert("æ ‡é¢˜ä¸èƒ½ä¸ºç©º");
             } else if(name == "") {
-                alert("×÷Õß²»ÄÜÎª¿Õ");
+                alert("ä½œè€…ä¸èƒ½ä¸ºç©º");
             } else if(text == "") {
-                alert("ÄÚÈİ²»ÄÜÎª¿Õ");
+                alert("å†…å®¹ä¸èƒ½ä¸ºç©º");
             }else {
                 var datas = "_id="+_id
                         +"&title=" + encodeURIComponent(title)
@@ -80,11 +80,11 @@
         }
     }
 
-    //É¾³ı
+    //åˆ é™¤
 
     var deleteArticle = document.getElementById("deleteArticle");
     deleteArticle.onclick= function(){
-        var isdelete = confirm("È·¶¨É¾³ıÎÄÕÂÂğ£¿");
+        var isdelete = confirm("ç¡®å®šåˆ é™¤æ–‡ç« å—ï¼Ÿ");
         if(isdelete) {
             var form = document.forms[0];
             var title = form.title.value;
